@@ -1,0 +1,1 @@
+运行build.sh进行编译链接，编译成功后再本地目录生成flash-image.bin
