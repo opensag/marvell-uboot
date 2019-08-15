@@ -437,7 +437,7 @@ U_BOOT_CMD(
 
 static int do_set_sn(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 {
-	char inputBuf[128] = {0};
+	char inputBuf[1024] = {0};
 	int ret = 0;
 	unsigned int length = 0;
 	char cmdBuf[128] = {0};
@@ -452,7 +452,7 @@ static int do_set_sn(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	
 	inputBuf[++length] = '\0';
 
-	sprintf(cmdBuf, "ext4write mmc 1:2 0x%p /etc/box.sn 0x%lx 0", inputBuf, sizeof(inputBuf));
+	sprintf(cmdBuf, "ext4write mmc 1:2 0x%p /etc/box.sn 0x%x 0", inputBuf, length);
 
 	ret += run_command(cmdBuf, 0);
 	
