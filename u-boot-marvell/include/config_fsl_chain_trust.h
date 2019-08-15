@@ -48,7 +48,7 @@
 #define CONFIG_SET_BOOTARGS	"setenv bootargs \'" CONFIG_BOOTARGS" \';"
 #else
 #define CONFIG_SET_BOOTARGS	"setenv bootargs \'root=/dev/ram "	\
-				"rw console=ttyS0,9600 ramdisk_size=600000\';"
+				"rw console=ttyS0,115200 ramdisk_size=600000\';"
 #endif
 
 

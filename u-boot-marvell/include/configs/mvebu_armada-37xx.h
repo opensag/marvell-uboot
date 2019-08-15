@@ -7,7 +7,7 @@
 #ifndef _CONFIG_MVEBU_ARMADA_37XX_H
 #define _CONFIG_MVEBU_ARMADA_37XX_H
 
-#define CONFIG_DEFAULT_CONSOLE		"console=ttyMV0,9600 "\
+#define CONFIG_DEFAULT_CONSOLE		"console=ttyMV0,115200 "\
 					"earlycon=ar3700_uart,0xd0012000"
 
 /* USB 2.0 */

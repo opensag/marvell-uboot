@@ -148,7 +148,7 @@ int main(int exception, char **dummy)
 	if (status)
 		return status;
 
-	status = uart_init(9600);
+	status = uart_init(115200);
 	if (status)
 		return status;
 	init_printf(NULL, uart_putc);

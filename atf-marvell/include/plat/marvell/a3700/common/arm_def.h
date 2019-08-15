@@ -175,8 +175,7 @@
 #define MAX_MMAP_REGIONS		(PLAT_MARVELL_MMAP_ENTRIES +	\
 					 MARVELL_BL_REGIONS)
 
-//#define MARVELL_CONSOLE_BAUDRATE	115200
-#define MARVELL_CONSOLE_BAUDRATE	9600
+#define MARVELL_CONSOLE_BAUDRATE	115200
 
 /******************************************************************************
  * Required platform porting definitions common to all MARVELL standard platforms
