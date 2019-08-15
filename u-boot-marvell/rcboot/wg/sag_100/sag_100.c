@@ -452,7 +452,7 @@ static int do_set_sn(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 	
 	inputBuf[++length] = '\0';
 
-	sprintf(cmdBuf, "ext4write mmc 1:2 0x%p /opt/etc/box.sn 0x%lx 0", inputBuf, sizeof(inputBuf));
+	sprintf(cmdBuf, "ext4write mmc 1:2 0x%p /etc/box.sn 0x%lx 0", inputBuf, sizeof(inputBuf));
 
 	ret += run_command(cmdBuf, 0);
 	
