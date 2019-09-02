@@ -283,27 +283,10 @@ U_BOOT_CMD(
 
 static int do_sysup(cmd_tbl_t *cmdtp, int flag, int argc, char * const argv[])
 {
-	char file_name[STR_TMP] = {0};
-	uint file_len = 0;
-	uint file_add = LOAD_ADDR;
 	int ret = 0;
-	char cmdBuf[128] = {0};
 	
-	ret = get_part_info();
-	if (ret != 0){
-		printf("Partition Table is wrong, Please execute 3. Scattered utilities.\r\n");
-		return -1;
-	}
+	ret = run_command("setenv ipaddr 192.168.0.1; setenv serverip 192.168.0.100; setenv image_name openwrt-mvebu-cortexa53-sag-100wm-initramfs-kernel.bin; setenv fdt_name armada-3720-sag-100wm.dtb; tftpboot $kernel_addr $image_name; tftpboot $fdt_addr $fdt_name;setenv bootargs $console; booti $kernel_addr - $fdt_addr;", 0);
 
-	ERROR_EXIT( get_file_name(argc, argv, file_name) );
-	ERROR_EXIT( tftp_get_file(file_name, file_add, &file_len) );
-
-	ret = run_command("mmc dev 1", 0);
-
-	memset(cmdBuf, 0 , 128);
-	sprintf(cmdBuf, "mmc write 0x%x 0x%llx 0x%x", file_add, efi_part[0].start_lpa, SYS_LEN);
-	ret += run_command(cmdBuf, 0);
-	
 	printf_result(ret);
 	
 	return ret;
